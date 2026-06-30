@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extasy MC</title>
+    
+    <!-- Discord Embed Meta Tags -->
+    <meta property="og:title" content="Extasy MC | The Ultimate Community">
+    <meta property="og:description" content="Join our Minecraft server! Play, survive, and build with us. IP: play.extasy.click">
+    <!-- Using the updated link provided -->
+    <meta property="og:image" content="https://media.discordapp.net/attachments/1506033508135600228/1507444340023230694/thumbnail.PNG?ex=6a440571&is=6a42b3f1&hm=63d67f3225b28fb532981686c247c521ff5a8060f18d90546c47ac9ac6e87144&=&format=webp&quality=lossless&width=895&height=503">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://extasy.click">
+    <meta name="theme-color" content="#00f2ff">
+
+    <style>
+        body {
+            background-color: #050510;
+            color: #e0f7fa;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 50px 20px;
+        }
+        
+        /* Notification Styling */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #0a0f1d;
+            color: #00f2ff;
+            text-align: center;
+            border: 2px solid #00f2ff;
+            box-shadow: 0 0 15px #00f2ff;
+            border-radius: 10px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            top: 30px;
+            transform: translateX(-50%);
+            font-weight: bold;
+        }
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 1.5s;
+        }
+        @keyframes fadein { from {top: 0; opacity: 0;} to {top: 30px; opacity: 1;} }
+        @keyframes fadeout { from {top: 30px; opacity: 1;} to {top: 0; opacity: 0;} }
+
+        /* Logo Styling */
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #00f2ff;
+            box-shadow: 0 0 15px #00f2ff;
+            margin: 0 auto 20px auto;
+            overflow: hidden; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0a0f1d;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 { color: #00f2ff; text-shadow: 0 0 10px #00f2ff; }
+
+        .ip-box {
+            background: #0a0f1d;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            cursor: pointer;
+            margin: 20px 0;
+            border: 2px solid #00f2ff;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+            transition: 0.3s;
+        }
+        .ip-box:hover { background: #111a30; box-shadow: 0 0 20px #00f2ff; }
+
+        .social-btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            border: 1px solid #00f2ff;
+            transition: 0.3s;
+        }
+        .social-btn:hover { background: #00f2ff; color: #000; }
+        .appeal-btn { background: #ff0055; border: 1px solid #ff0055; }
+        .appeal-btn:hover { background: #ff4d88; color: #fff; }
+
+        /* Rules Section */
+        .rules-container {
+            margin-top: 40px;
+            text-align: left;
+            display: inline-block;
+            max-width: 500px;
+            background: #0a0f1d;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        .rules-container h2 { color: #00f2ff; text-align: center; }
+        .rules-container li { margin-bottom: 10px; color: #ccc; }
+    </style>
+</head>
+<body>
+
+    <div id="toast">IP Copied to Clipboard!</div>
+
+    <!-- Updated Logo Container -->
+    <div class="logo-container">
+        <img src="https://media.discordapp.net/attachments/1506033508135600228/1507444340023230694/thumbnail.PNG?ex=6a440571&is=6a42b3f1&hm=63d67f3225b28fb532981686c247c521ff5a8060f18d90546c47ac9ac6e87144&=&format=webp&quality=lossless&width=895&height=503" alt="Extasy Logo">
+    </div>
+    
+    <h1>Welcome to Extasy MC</h1>
+    <p>The home of the Extasy Minecraft Server.</p>
+
+    <div class="ip-box" onclick="copyIP()">
+        <h2 style="margin: 0; color: #fff;">Click to Copy IP</h2>
+        <h3 id="ip-address" style="margin: 5px 0 0 0; color: #00f2ff;">play.extasy.click</h3>
+    </div>
+
+    <div>
+        <a href="https://youtube.com/@Extxsy" class="social-btn">YouTube</a>
+        <a href="https://tiktok.com/@1.extxsy" class="social-btn">TikTok</a>
+        <a href="https://discord.gg/z6HSmMC6DG" target="_blank" class="social-btn appeal-btn">Ban Appeal</a>
+    </div>
+
+    <div class="rules-container">
+        <h2>Server Rules</h2>
+        <ul>
+            <li>No griefing or stealing.</li>
+            <li>No hacking or unfair client-side mods.</li>
+            <li>No stream sniping or harassment.</li>
+            <li>No doxxing or sharing private info.</li>
+            <li>Respect staff decisions.</li>
+        </ul>
+    </div>
+
+    <script>
+        function copyIP() {
+            navigator.clipboard.writeText('play.extasy.click');
+            var x = document.getElementById("toast");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+        }
+    </script>
+</body>
+</html>
